@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Imperium Barbershop | Cortes Clásicos, Fades y Barba</title>
+  <style>
+    :root {
+      --bg-dark: #121212;
+      --bg-card: #1e1e1e;
+      --accent: #d4af37;
+      --accent-hover: #b89628;
+      --text-light: #f5f5f5;
+      --text-muted: #aaa;
+      --border: #333;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    body {
+      background-color: var(--bg-dark);
+      color: var(--text-light);
+      line-height: 1.6;
+    }
+
+    /* Header & Hero */
+    header {
+      background: linear-gradient(rgba(0,0,0,0.75), rgba(0,0,0,0.75)), 
+                  url('https://images.unsplash.com/photo-1503951914875-452162b0f3f1?auto=format&fit=crop&w=1350&q=80') center/cover no-repeat;
+      min-height: 80vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 2rem 1rem;
+      border-bottom: 3px solid var(--accent);
+    }
+
+    header h1 {
+      font-size: 3rem;
+      color: var(--accent);
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      margin-bottom: 0.5rem;
+    }
+
+    header p.subtitle {
+      font-size: 1.2rem;
+      color: var(--text-muted);
+      margin-bottom: 1.5rem;
+    }
+
+    .quote-banner {
+      background: rgba(212, 175, 55, 0.15);
+      border-left: 4px solid var(--accent);
+      padding: 1rem 1.5rem;
+      max-width: 600px;
+      font-style: italic;
+      margin-top: 1rem;
+    }
+
+    /* Container */
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 3rem 1rem;
+    }
+
+    .section-title {
+      text-align: center;
+      font-size: 2rem;
+      color: var(--accent);
+      margin-bottom: 2rem;
+      text-transform: uppercase;
+    }
+
+    /* Specialty Gallery / Cuts */
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 1.5rem;
+      margin-bottom: 3rem;
+    }
+
+    .card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      overflow: hidden;
+      text-align: center;
+      transition: transform 0.3s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+    }
+
+    .card img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+    }
+
+    .card-body {
+      padding: 1rem;
+    }
+
+    .card-body h3 {
+      color: var(--accent);
+      margin-bottom: 0.5rem;
+    }
+
+    /* Booking Form */
+    .booking-section {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      padding: 2rem;
+      border-radius: 8px;
+      max-width: 700px;
+      margin: 0 auto 3rem auto;
+    }
+
+    .form-group {
+      margin-bottom: 1.2rem;
+    }
+
+    .form-group label {
+      display: block;
+      margin-bottom: 0.5rem;
+      color: var(--text-light);
+      font-weight: 600;
+    }
+
+    .form-group input, 
+    .form-group select {
+      width: 100%;
+      padding: 0.8rem;
+      border-radius: 4px;
+      border: 1px solid var(--border);
+      background-color: #2a2a2a;
+      color: #fff;
+      font-size: 1rem;
+    }
+
+    .btn-whatsapp {
+      display: block;
+      width: 100%;
+      background-color: #25d366;
+      color: #fff;
+      text-align: center;
+      padding: 1rem;
+      border: none;
+      border-radius: 4px;
+      font-size: 1.1rem;
+      font-weight: bold;
+      cursor: pointer;
+      text-transform: uppercase;
+      transition: background 0.3s ease;
+    }
+
+    .btn-whatsapp:hover {
+      background-color: #1eb954;
+    }
+
+    /* Location & Reviews */
+    .info-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+    }
+
+    .info-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      padding: 1.5rem;
+      border-radius: 8px;
+      text-align: center;
+    }
+
+    .map-frame {
+      width: 100%;
+      height: 220px;
+      border: 0;
+      border-radius: 6px;
+      margin-top: 1rem;
+    }
+
+    .btn-review {
+      display: inline-block;
+      margin-top: 1rem;
+      padding: 0.8rem 1.5rem;
+      background-color: var(--accent);
+      color: #000;
+      font-weight: bold;
+      text-decoration: none;
+      border-radius: 4px;
+      transition: background 0.3s ease;
+    }
+
+    .btn-review:hover {
+      background-color: var(--accent-hover);
+    }
+
+    /* Footer */
+    footer {
+      text-align: center;
+      padding: 2rem;
+      border-top: 1px solid var(--border);
+      color: var(--text-muted);
+      font-size: 0.9rem;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header / Hero Section -->
+  <header>
+    <h1>Imperium Barbershop</h1>
+    <p class="subtitle">Especialistas en Cortes Clásicos, Fades, Barba y Perfilado Tradicional</p>
+    <div class="quote-banner">
+      "Un buen corte no solo cambia tu estilo, transforma tu actitud."
+    </div>
+  </header>
+
+  <div class="container">
+
+    <!-- Cortes y Servicios de Moda -->
+    <h2 class="section-title">Estilos y Especialidades</h2>
+    <div class="grid">
+      <div class="card">
+        <img src="https://images.unsplash.com/photo-1622286342621-4bd786c2447c?auto=format&fit=crop&w=600&q=80" alt="Corte Fade">
+        <div class="card-body">
+          <h3>Skin Fade & Taper</h3>
+          <p>Degradados limpios y de alta precisión adaptados a la forma de tu rostro.</p>
+        </div>
+      </div>
+      <div class="card">
+        <img src="https://images.unsplash.com/photo-1503951914875-452162b0f3f1?auto=format&fit=crop&w=600&q=80" alt="Corte Clásico">
+        <div class="card-body">
+          <h3>Corte Clásico Executive</h3>
+          <p>Peinados sobrios y elegantes con acabado a navaja y estilo atemporal.</p>
+        </div>
+      </div>
+      <div class="card">
+        <img src="https://images.unsplash.com/photo-1621605815971-fbc98d665033?auto=format&fit=crop&w=600&q=80" alt="Perfilado de Barba">
+        <div class="card-body">
+          <h3>Rito de Barba & Perfilado</h3>
+          <p>Delineado preciso con navaja, toalla caliente y aceites hidratantes.</p>
+        </div>
+      </div>
+      <div class="card">
+        <img src="https://images.unsplash.com/photo-1599351431202-1e0f0137899a?auto=format&fit=crop&w=600&q=80" alt="Texturizado de Moda">
+        <div class="card-body">
+          <h3>Crop & Textured Cut</h3>
+          <p>Cortes modernos con textura superior, ideales para el día a día.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Agenda por WhatsApp -->
+    <h2 class="section-title">Reserva tu Cita</h2>
+    <div class="booking-section">
+      <form id="bookingForm">
+        <div class="form-group">
+          <label for="name">Nombre Completo:</label>
+          <input type="text" id="name" placeholder="Ej. Carlos Pérez" required>
+        </div>
+
+        <div class="form-group">
+          <label for="barber">Selecciona tu Barbero:</label>
+          <select id="barber" required>
+            <option value="Alexander (Master Barber)">Alexander (Master Barber)</option>
+            <option value="Mateo (Especialista en Fades)">Mateo (Especialista en Fades)</option>
+            <option value="Gabriel (Experto en Barba)">Gabriel (Experto en Barba)</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="service">Servicio Deseado:</label>
+          <select id="service" required>
+            <option value="Corte Clásico">Corte Clásico</option>
+            <option value="Fade (Degradado)">Fade (Degradado)</option>
+            <option value="Corte y Perfilado de Barba">Corte y Perfilado de Barba</option>
+            <option value="Perfilado de Barba Tradicional">Perfilado de Barba Tradicional</option>
+            <option value="Servicio Completo (Corte + Barba)">Servicio Completo (Corte + Barba)</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="date">Fecha y Hora Preferida:</label>
+          <input type="datetime-local" id="date" required>
+        </div>
+
+        <button type="button" onclick="sendWhatsApp()" class="btn-whatsapp">
+          Agendar por WhatsApp
+        </button>
+      </form>
+    </div>
+
+    <!-- Ubicación y Calificación Google Maps -->
+    <div class="info-grid">
+      <div class="info-card">
+        <h3>Visítanos</h3>
+        <p>Calle Principal, Local #4, Sector Centro.</p>
+        <iframe 
+          class="map-frame"
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3923.123456789!2d-66.600000!3d10.500000!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMTDCsDMwJzAwLjAiTiA2NsKwMzYnMDAuMCJX!5e0!3m2!1ses!2sve!4v1600000000000!5m2!1ses!2sve" 
+          allowfullscreen="" 
+          loading="lazy">
+        </iframe>
+      </div>
+
+      <div class="info-card">
+        <h3>Tu Opinión Importa</h3>
+        <p>¿Ya te atendiste con nosotros? Déjanos tu valoración de 5 estrellas en Google Maps.</p>
+        <p style="margin-top: 1rem; color: #ffca28; font-size: 1.5rem;">★★★★★</p>
+        <a href="https://maps.google.com" target="_blank" class="btn-review">
+          Calificar en Google Maps
+        </a>
+      </div>
+    </div>
+
+  </div>
+
+  <footer>
+    <p>"El estilo es el reflejo de tu disciplina." — Imperium Barbershop &copy; 2026</p>
+  </footer>
+
+  <script>
+    function sendWhatsApp() {
+      // Configura aquí tu número de teléfono de WhatsApp (incluyendo código de país)
+      const phoneNumber = "584120000000"; 
+      
+      const name = document.getElementById('name').value;
+      const barber = document.getElementById('barber').value;
+      const service = document.getElementById('service').value;
+      const date = document.getElementById('date').value;
+
+      if (!name || !date) {
+        alert("Por favor completa tu nombre y la fecha de tu cita.");
+        return;
+      }
+
+      const formattedDate = new Date(date).toLocaleString('es-ES', { 
+        dateStyle: 'medium', 
+        timeStyle: 'short' 
+      });
+
+      const message = `Hola! Quisiera agendar una cita en *Imperium Barbershop*:%0A` +
+                      `- *Cliente:* ${encodeURIComponent(name)}%0A` +
+                      `- *Barbero:* ${encodeURIComponent(barber)}%0A` +
+                      `- *Servicio:* ${encodeURIComponent(service)}%0A` +
+                      `- *Fecha/Hora:* ${encodeURIComponent(formattedDate)}`;
+
+      const url = `https://wa.me/${phoneNumber}?text=${message}`;
+      window.open(url, '_blank');
+    }
+  </script>
+
+</body>
+</html>
